@@ -311,6 +311,8 @@ const constants = {
 					"Personal\nEndings",
 				],
 
+				rowLabels: [],
+
 				elements: [
 					{ text: "Present Active" },
 					{ answered: true },

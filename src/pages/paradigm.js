@@ -149,12 +149,10 @@ export default {
 					(label) => html`<pre class = "medium-font">${label}</pre>`,
 				)}
 				
-				${
-					pageData.paradigm.rowLabels?.map(
-						(label) =>
-							html`<pre class = "paradigm-row-label medium-font">${label}</pre>`,
-					) ?? null
-				}
+				${pageData.paradigm.rowLabels.map(
+					(label) =>
+						html`<pre class = "paradigm-row-label medium-font">${label}</pre>`,
+				)}
 				
 				${pageData.paradigm.elements.map(
 					(element) =>
