@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import html from "bun-plugin-html";
 
 import constants from "./constants";
 
