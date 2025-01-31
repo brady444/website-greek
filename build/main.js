@@ -44,7 +44,7 @@ await Bun.write(pagesPath, pagesText);
 
 console.log(`Deleting ${constants.outputPath}`);
 
-fs.rmSync(constants.outputPath, { recursive: true });
+fs.rmSync(constants.outputPath, { recursive: true, force: true });
 
 // Bundle and write to the output path
 
@@ -54,7 +54,6 @@ await Bun.build({
 	entrypoints: [path.join(constants.srcPath, "index.html")],
 	outdir: constants.outputPath,
 	minify: true,
-	plugins: [html()],
 });
 
 const outputFiles = fs.readdirSync(constants.outputPath);

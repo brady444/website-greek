@@ -13,7 +13,9 @@ const utilities = {
 			numberText = numberText.slice(1);
 		}
 
-		return Number.isNaN(numberText) ? undefined : `G${numberText}`;
+		return Number.isNaN(Number.parseInt(numberText))
+			? undefined
+			: `G${numberText}`;
 	},
 
 	simplifyGreek: (text) =>
