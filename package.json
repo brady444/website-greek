@@ -1,8 +1,6 @@
 {
 	"scripts": {
-		"prepare": "husky",
-		"build": "bun run build/main.js",
-		"start": "watchexec -e html,css,js,json,yaml,txt -i src/generated/ -i src/data.js -r 'clear && bun run build'"
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"husky": "^9.1.7",

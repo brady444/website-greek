@@ -1,5 +1,5 @@
 {
 	"files": {
-		"ignore": ["build/data/", "src/generated/", "src/data.js"]
+		"ignore": ["build/data/", "src/generated/"]
 	}
 }

@@ -1,1 +1,1 @@
-biome ci && bun run build
+biome ci

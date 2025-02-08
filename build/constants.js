@@ -1,17 +1,15 @@
 import path from "node:path";
 
 export default {
-	outputPath: path.join(__dirname, "../../website/ui/greek"),
-	srcPath: path.join(__dirname, "../src"),
-	generatedPath: path.join(__dirname, "../src/generated"),
-	pagesPath: path.join(__dirname, "../src/pages"),
+	generatedPath: path.join(import.meta.dir, "../src/generated"),
+	pagesPath: path.join(import.meta.dir, "../src/pages"),
 
-	morphGntPath: path.join(__dirname, "data/morphgnt/"),
+	morphGntPath: path.join(import.meta.dir, "data/morphgnt"),
 	stepBibleLexiconPath: path.join(
-		__dirname,
+		import.meta.dir,
 		"data/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt",
 	),
-	strongsMappingPath: path.join(__dirname, "data/strongs_mapping.yaml"),
+	strongsMappingPath: path.join(import.meta.dir, "data/strongs_mapping.yaml"),
 
 	invalidCharacterRegex: /.*[\w[\]\\{}|;:,<.>/?@$%^_=+"'~`*()-].*/giu,
 
