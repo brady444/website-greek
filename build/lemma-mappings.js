@@ -17,11 +17,7 @@ const strongsNumberMap = yaml.load(
 	utilities.oxiaToTonos(fs.readFileSync(constants.strongsMappingPath, "utf8")),
 );
 
-const numbers = Object.keys(strongsNumberMap);
-
-for (let i = 0; i < numbers.length; i++) {
-	const number = numbers[i];
-
+for (const number in strongsNumberMap) {
 	const lexicalForms = strongsNumberMap[number];
 
 	for (let j = 0; j < lexicalForms.length; j++) {

@@ -51,18 +51,14 @@ for (let i = 0; i < outputData.vocabulary.length; i++) {
 	strongsNumberVocabularyMap[word.number] = word;
 }
 
-const morphGntLexicalForms = Object.keys(morphGnt.data.vocabulary);
-
-for (let i = 0; i < morphGntLexicalForms.length; i++) {
-	const morphGntWord = morphGnt.data.vocabulary[morphGntLexicalForms[i]];
+for (const lexicalForm in morphGnt.data.vocabulary) {
+	const morphGntWord = morphGnt.data.vocabulary[lexicalForm];
 
 	const lemmaMapping =
 		lemmaMappings.data.lexicalFormVocabularyMap[morphGntWord.lexicalForm];
 
 	if (lemmaMapping === undefined) {
-		addError(
-			`Lexical form "${morphGntLexicalForms[i]}" doesn't have a Strong's number`,
-		);
+		addError(`Lexical form "${lexicalForm}" doesn't have a Strong's number`);
 
 		continue;
 	}
@@ -70,7 +66,7 @@ for (let i = 0; i < morphGntLexicalForms.length; i++) {
 	// If there are multiple Strong's numbers for this lexical form
 	if (lemmaMapping.numbers.length > 1) {
 		addError(
-			`Lexical form "${morphGntLexicalForms[i]}" has multiple Strong's numbers: ${lemmaMapping.numbers.join(", ")}`,
+			`Lexical form "${lexicalForm}" has multiple Strong's numbers: ${lemmaMapping.numbers.join(", ")}`,
 		);
 	}
 

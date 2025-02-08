@@ -373,9 +373,9 @@ const propertyKeys = Object.keys(constants.formUseProperties);
 const propertyValues = Object.values(constants.formUseProperties);
 
 const sortFormUses = (a, b) => {
-	for (let j = 0; j < propertyKeys.length; j++) {
-		const aIndex = propertyValues[j].indexOf(a[propertyKeys[j]]);
-		const bIndex = propertyValues[j].indexOf(b[propertyKeys[j]]);
+	for (let i = 0; i < propertyKeys.length; i++) {
+		const aIndex = propertyValues[i].indexOf(a[propertyKeys[i]]);
+		const bIndex = propertyValues[i].indexOf(b[propertyKeys[i]]);
 
 		if (aIndex !== -1 && bIndex === -1) {
 			return -1;
@@ -726,10 +726,8 @@ for (let i = 0; i < lines.length; i++) {
 	});
 }
 
-const lexicalForms = Object.keys(data.vocabulary);
-
-for (let i = 0; i < lexicalForms.length; i++) {
-	const word = data.vocabulary[lexicalForms[i]];
+for (const lexicalForm in data.vocabulary) {
+	const word = data.vocabulary[lexicalForm];
 
 	// Sort uses
 	for (let j = 0; j < word.forms.length; j++) {
