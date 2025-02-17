@@ -1,6 +1,6 @@
-import utilities from "./utilities";
+import { utilities } from "./utilities.js";
 
-import strongsGreekDictionary from "./data/strongs-greek-dictionary";
+import strongsGreekDictionary from "./data/strongs-greek-dictionary.js";
 
 console.time("strongs");
 
@@ -66,6 +66,4 @@ data.vocabulary.sort((a, b) =>
 
 console.timeEnd("strongs");
 
-export default {
-	data,
-};
+export { data };

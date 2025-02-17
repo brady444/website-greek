@@ -1,8 +1,8 @@
 import { html } from "uhtml";
 
-import constants from "../constants";
+import { constants } from "../constants.js";
 
-export default {
+export const page = {
 	content:
 		() => html`<div class = "page-container flex-column-top grow full-width full-height xx-large-gap medium-padding">
 			<div class = "medium-width flex-column-top xx-large-gap">

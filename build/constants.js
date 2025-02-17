@@ -1,6 +1,6 @@
 import path from "node:path";
 
-export default {
+export const constants = {
 	generatedPath: path.join(import.meta.dir, "../src/generated"),
 	pagesPath: path.join(import.meta.dir, "../src/pages"),
 

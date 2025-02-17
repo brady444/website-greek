@@ -1,9 +1,4 @@
-export default {
-	trimEndComma: (string) =>
-		string.endsWith(",") ? string.slice(0, -1) : string,
-
-	removeNumbers: (string) => string.replaceAll(/\d/gu, ""),
-
+export const utilities = {
 	simplifyGreek: (text) =>
 		text
 			.normalize("NFD")

@@ -1,9 +1,9 @@
 import { html } from "uhtml";
 
-import constants from "../constants";
-import utilities from "../utilities";
+import { constants } from "../constants.js";
+import { utilities } from "../utilities.js";
 
-export default {
+export const page = {
 	setup: () => {
 		// Functions for all modes
 

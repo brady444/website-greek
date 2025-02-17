@@ -265,6 +265,7 @@ option {
 	/*Firefox*/
 	overflow-y: scroll;
 	/*Chrome*/
+	/* biome-ignore lint/nursery/noDuplicateProperties: browser compatibility */
 	overflow-y: overlay;
 }
 

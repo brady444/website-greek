@@ -1,10 +1,10 @@
 import { html } from "uhtml";
 
-import components from "../components";
-import constants from "../constants";
-import utilities from "../utilities";
+import { components } from "../components.js";
+import { constants } from "../constants.js";
+import { utilities } from "../utilities.js";
 
-export default {
+export const page = {
 	setup: () => {
 		pageData.parse = (input) => {
 			pageData.formGroups = [];
@@ -13,8 +13,8 @@ export default {
 			if (input.length > 0) {
 				const inputWords = input
 					.trim()
-					.split(/\s+/u)
-					.map((inputWord) => utilities.englishToGreek(inputWord));
+					.split(" ")
+					.map((inputWord) => utilities.englishToGreek(inputWord.trim()));
 
 				for (let i = 0; i < inputWords.length; i++) {
 					const inputWord = inputWords[i];

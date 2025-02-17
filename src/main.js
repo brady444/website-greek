@@ -1,7 +1,7 @@
 import { html, render } from "uhtml";
 
-import pages from "./generated/pages";
-import utilities from "./utilities";
+import { pages } from "./generated/pages.js";
+import { utilities } from "./utilities.js";
 
 let currentPage = "main";
 

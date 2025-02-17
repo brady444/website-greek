@@ -1,10 +1,10 @@
 import { html } from "uhtml";
 
-import components from "../components";
-import constants from "../constants";
-import utilities from "../utilities";
+import { components } from "../components.js";
+import { constants } from "../constants.js";
+import { utilities } from "../utilities.js";
 
-export default {
+export const page = {
 	setup: (path) => {
 		// Set up book and chapter indices
 

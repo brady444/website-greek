@@ -1,6 +1,6 @@
 import { html } from "uhtml";
 
-export default {
+export const components = {
 	wordPropertySelector: (
 		oninput,
 		showDescriptions,

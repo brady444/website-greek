@@ -1,25 +1,25 @@
-import lemmaMappings from "./lemma-mappings";
-import morphGnt from "./morphgnt";
-import step from "./step";
-import strongs from "./strongs";
-import utilities from "./utilities";
+import { data as lemmaMappings } from "./lemma-mappings.js";
+import { data as morphGnt } from "./morphgnt.js";
+import { data as step } from "./step.js";
+import { data as strongs } from "./strongs.js";
+import { utilities } from "./utilities.js";
 
 console.time("parser");
 
 // Final data to output to the data file
 let outputData = {
 	errors: new Set(),
-	vocabulary: strongs.data.vocabulary,
-	newTestament: morphGnt.data.newTestament,
+	vocabulary: strongs.vocabulary,
+	newTestament: morphGnt.newTestament,
 };
 
 const addError = (error) => outputData.errors.add(error);
 
 // Add errors from sources
 outputData.errors = outputData.errors
-	.union(morphGnt.data.errors)
-	.union(step.data.errors)
-	.union(strongs.data.errors);
+	.union(morphGnt.errors)
+	.union(step.errors)
+	.union(strongs.errors);
 
 // Add STEPBible data to vocabulary
 for (let i = 0; i < outputData.vocabulary.length; i++) {
@@ -28,7 +28,7 @@ for (let i = 0; i < outputData.vocabulary.length; i++) {
 	outputData.vocabulary[i] = {
 		...word,
 		// STEPBible data will overwrite any duplicate fields
-		...step.data.vocabulary[word.number],
+		...step.vocabulary[word.number],
 	};
 }
 
@@ -51,11 +51,11 @@ for (let i = 0; i < outputData.vocabulary.length; i++) {
 	strongsNumberVocabularyMap[word.number] = word;
 }
 
-for (const lexicalForm in morphGnt.data.vocabulary) {
-	const morphGntWord = morphGnt.data.vocabulary[lexicalForm];
+for (const lexicalForm in morphGnt.vocabulary) {
+	const morphGntWord = morphGnt.vocabulary[lexicalForm];
 
 	const lemmaMapping =
-		lemmaMappings.data.lexicalFormVocabularyMap[morphGntWord.lexicalForm];
+		lemmaMappings.lexicalFormVocabularyMap[morphGntWord.lexicalForm];
 
 	if (lemmaMapping === undefined) {
 		addError(`Lexical form "${lexicalForm}" doesn't have a Strong's number`);
@@ -190,11 +190,11 @@ outputData = JSON.parse(utilities.oxiaToTonos(JSON.stringify(outputData)));
 
 console.timeEnd("parser");
 
-console.log(`Error count: ${outputData.errors.length.toLocaleString()}`);
+console.info(`Error count: ${outputData.errors.length.toLocaleString()}`);
 
 const outputDataKeys = Object.keys(outputData);
 
-console.log(
+console.info(
 	`Data size: ${(new Blob([JSON.stringify(outputData)]).size / 1_000_000).toLocaleString()}MB (${outputDataKeys
 		.map(
 			(key) =>
@@ -205,6 +205,4 @@ console.log(
 		.join(", ")})`,
 );
 
-export default {
-	data: outputData,
-};
+export { outputData as data };

@@ -1,9 +1,9 @@
 import { html } from "uhtml";
 
-import constants from "../constants";
-import utilities from "../utilities";
+import { constants } from "../constants.js";
+import { utilities } from "../utilities.js";
 
-export default {
+export const page = {
 	setup: (path) => {
 		pageData.updateParadigm = (paradigmName) => {
 			if (paradigmName !== undefined) {
@@ -95,7 +95,7 @@ export default {
 				}
 
 				// If paradigm is complete
-				if (pageData.remainingElements.length < 1) {
+				if (pageData.remainingElements.length === 0) {
 					pageData.updateParadigm();
 				} else {
 					pageData.currentElement = utilities.randomElement(

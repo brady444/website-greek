@@ -1,5 +1,5 @@
 import data from "./generated/data.json";
-import utilities from "./utilities";
+import { utilities } from "./utilities.js";
 
 const constants = {
 	// Import data from the parser
@@ -1858,4 +1858,4 @@ for (let i = 0; i < constants.newTestament.length; i++) {
 	}
 }
 
-export default constants;
+export { constants };

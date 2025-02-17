@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import constants from "./constants";
-import utilities from "./utilities";
+import { constants } from "./constants.js";
+import { utilities } from "./utilities.js";
 
 console.time("morphgnt");
 
@@ -540,19 +540,9 @@ const getPrincipalParts = (word) => {
 
 			// If this is present tense, and the form is different from the lexical form
 			if (partIndex === 0 && approximatedPart !== `[${word.lexicalForm}]`) {
-				// TODO add other exceptions
-
-				// If this is a contract verb, the lexicalForm is expected to be different
-				if (
-					(!word.lexicalForm.endsWith("άω") &&
-						!word.lexicalForm.endsWith("έω") &&
-						!word.lexicalForm.endsWith("όω")) ||
-					approximatedPart.endsWith("ῶ")
-				) {
-					addError(
-						`Lexical form "${word.lexicalForm}" has an approximated present principal part "${approximatedPart}" that is different from its lexical form`,
-					);
-				}
+				addError(
+					`Lexical form "${word.lexicalForm}" has an approximated present principal part "${approximatedPart}" that is different from its lexical form`,
+				);
 			}
 
 			// If the approximatedPrincipalPart is the same as form.text (meaning its ending is probably missing from constants.personalEndings)
@@ -743,6 +733,4 @@ for (const lexicalForm in data.vocabulary) {
 
 console.timeEnd("morphgnt");
 
-export default {
-	data,
-};
+export { data };

@@ -1,6 +1,6 @@
 import { html } from "uhtml";
 
-export default {
+export const page = {
 	content:
 		() => html`<div class = "page-container flex-column-top grow full-width full-height">
 			<div class = "section-group full-width flex large-padding xx-large-gap">

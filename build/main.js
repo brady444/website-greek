@@ -1,18 +1,18 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import constants from "./constants";
+import { constants } from "./constants.js";
 
 // Run the parser
-import parser from "./parser";
+import { data } from "./parser.js";
 
 // Generate data.js
 
 const dataPath = path.join(constants.generatedPath, "data.json");
 
-console.log(`Writing ${dataPath}`);
+console.info(`Writing ${dataPath}`);
 
-await Bun.write(dataPath, JSON.stringify(parser.data, null, "\t"));
+await Bun.write(dataPath, JSON.stringify(data, null, "\t"));
 
 // Generate pages.js
 
@@ -25,12 +25,12 @@ const pageFiles = fs.readdirSync(constants.pagesPath, { recursive: true });
 for (let i = 0; i < pageFiles.length; i++) {
 	const page = pageFiles[i].split(".")[0];
 
-	pagesText += `import ${page} from "../pages/${page}";`;
+	pagesText += `import { page as ${page} } from "../pages/${page}.js";`;
 	pagesText += `pages.${page} = ${page};`;
 }
 
-pagesText += "export default pages;";
+pagesText += "export { pages };";
 
-console.log(`Writing ${pagesPath}`);
+console.info(`Writing ${pagesPath}`);
 
 await Bun.write(pagesPath, pagesText);

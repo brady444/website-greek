@@ -1,8 +1,8 @@
 import { html } from "uhtml";
 
-import constants from "../constants";
+import { constants } from "../constants.js";
 
-export default {
+export const page = {
 	setup: (path) => {
 		pageData.word = constants.vocabularyNumberMap[path[1]];
 

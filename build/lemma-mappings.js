@@ -2,8 +2,8 @@ import fs from "node:fs";
 
 import yaml from "js-yaml";
 
-import constants from "./constants";
-import utilities from "./utilities";
+import { constants } from "./constants.js";
+import { utilities } from "./utilities.js";
 
 console.time("lemma-mappings");
 
@@ -33,6 +33,4 @@ for (const number in strongsNumberMap) {
 
 console.timeEnd("lemma-mappings");
 
-export default {
-	data,
-};
+export { data };

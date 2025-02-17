@@ -1,5 +1,11 @@
 {
+	"extends": ["../website/biome.json"],
+
 	"files": {
-		"ignore": ["build/data/", "src/generated/"]
+		"ignore": ["build/data/"]
+	},
+
+	"javascript": {
+		"globals": ["navigate", "pageData", "update"]
 	}
 }

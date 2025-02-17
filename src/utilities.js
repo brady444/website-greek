@@ -1,4 +1,4 @@
-const utilities = {
+export const utilities = {
 	setPath: (path) => history.replaceState(null, "", `#/${path}`),
 
 	randomInteger: (minimum, maximum) =>
@@ -103,5 +103,3 @@ const utilities = {
 			.replaceAll("z", "ζ")
 			.replaceAll("Z", "Ζ"),
 };
-
-export default utilities;

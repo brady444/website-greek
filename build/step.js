@@ -1,7 +1,7 @@
 import fs from "node:fs";
 
-import constants from "./constants";
-import utilities from "./utilities";
+import { constants } from "./constants.js";
+import { utilities } from "./utilities.js";
 
 console.time("step");
 
@@ -40,10 +40,11 @@ for (let i = 0; i < lines.length; i++) {
 	// TODO what does the equal sign mean? Some words are different on each side of the equal sign
 	const lexicalFormEqualSignParts = lexicalForm.split("=");
 
-	if (lexicalFormEqualSignParts.length === 2) {
-		if (lexicalFormEqualSignParts[0] === lexicalFormEqualSignParts[1]) {
-			lexicalForm = lexicalFormEqualSignParts[0];
-		}
+	if (
+		lexicalFormEqualSignParts.length === 2 &&
+		lexicalFormEqualSignParts[0] === lexicalFormEqualSignParts[1]
+	) {
+		lexicalForm = lexicalFormEqualSignParts[0];
 	}
 
 	if (data.vocabulary[extendedStrongsNumber] === undefined) {
@@ -73,6 +74,4 @@ for (let i = 0; i < words.length; i++) {
 
 console.timeEnd("step");
 
-export default {
-	data,
-};
+export { data };
