@@ -141,7 +141,7 @@ export const page = {
 					return html`<div class = "parsed-word flex-column-top x-small-gap">
 							${
 								formGroup.length > 1
-									? html`<p class = "x-large-font parser-swappable-option" onclick = ${() => pageData.swapForm(formGroupIndex)}>${form.text}</p>`
+									? html`<p class = "x-large-font parser-swappable-option" onmousedown = ${() => pageData.swapForm(formGroupIndex)}>${form.text}</p>`
 									: html`<p class = "x-large-font">${form.text}</p>`
 							}
 							
@@ -159,7 +159,7 @@ export const page = {
 										form.uses === undefined || !pageData.showDescriptions
 											? null
 											: form.uses.length > 1
-												? html`<p class = "small-font grayA parser-swappable-option" onclick = ${() => pageData.swapUse(formGroupIndex)}>${form.uses[pageData.selectedOptions[formGroupIndex].useIndex].shortDescription}</p>`
+												? html`<p class = "small-font grayA parser-swappable-option" onmousedown = ${() => pageData.swapUse(formGroupIndex)}>${form.uses[pageData.selectedOptions[formGroupIndex].useIndex].shortDescription}</p>`
 												: html`<p class = "small-font grayA">${form.uses[0].shortDescription}</p>`
 									}
 									

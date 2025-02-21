@@ -141,7 +141,7 @@ export const page = {
 					${Object.keys(constants.paradigms[pageData.currentCategory]).map((paradigmName) => html`<option class = "medium-font" selected = ${pageData.currentParadigmName === paradigmName}>${paradigmName}</option>`)}
 				</select>
 				
-				<button class = "full-height small-padding medium-font" onclick = ${pageData.togglePracticeMode}>${pageData.practiceMode ? "View" : "Practice"}</button>
+				<button class = "full-height small-padding medium-font" onmousedown = ${pageData.togglePracticeMode}>${pageData.practiceMode ? "View" : "Practice"}</button>
 			</div>
 			
 			<div class = "paradigm small-gap medium-padding" style = ${`grid-template-columns: repeat(${pageData.paradigm.columnLabels?.length ?? 2}, 1fr)`}>
@@ -156,7 +156,7 @@ export const page = {
 				
 				${pageData.paradigm.elements.map(
 					(element) =>
-						html`<button class = ${`paradigm-element flex ${pageData.paradigm.elementFontClass ?? "x-large-font"}${element.underlined ? " underlined" : ""}${element.answered ? " answered" : ""}`} disabled = ${element.incorrect} onclick = ${pageData.practiceMode ? () => pageData.paradigmElementOnClick(element) : null}>${element.answered ? element.text : null}</button>`,
+						html`<button class = ${`paradigm-element flex ${pageData.paradigm.elementFontClass ?? "x-large-font"}${element.underlined ? " underlined" : ""}${element.answered ? " answered" : ""}`} disabled = ${element.incorrect} onmousedown = ${pageData.practiceMode ? () => pageData.paradigmElementOnClick(element) : null}>${element.answered ? element.text : null}</button>`,
 				)}
 			</div>
 			

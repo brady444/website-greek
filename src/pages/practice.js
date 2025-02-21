@@ -54,7 +54,7 @@ export const page = {
 							<div class = "flex flex-wrap small-gap">
 								${pageData.modes.Vocabulary.currentChoices.map(
 									(choice) =>
-										html`<button class = ${"small-padding medium-font text-left"} disabled = ${choice.incorrect} onclick = ${() => pageData.modes.Vocabulary.selectChoice(choice)}>${choice.word.glossesString}</button>`,
+										html`<button class = ${"small-padding medium-font text-left"} disabled = ${choice.incorrect} onmousedown = ${() => pageData.modes.Vocabulary.selectChoice(choice)}>${choice.word.glossesString}</button>`,
 								)}
 							</div>
 						</div>
@@ -160,9 +160,9 @@ export const page = {
 						</div>
 						
 						<div class = "flex medium-gap">
-							<button class = "small-padding medium-font" onclick = ${pageData.modes.Parsing.nextForm}>Skip</button>
+							<button class = "small-padding medium-font" onmousedown = ${pageData.modes.Parsing.nextForm}>Skip</button>
 							
-							<button class = "small-padding medium-font" onclick = ${pageData.modes.Parsing.submit}>Submit</button>
+							<button class = "small-padding medium-font" onmousedown = ${pageData.modes.Parsing.submit}>Submit</button>
 						</div>
 					</div>`,
 
